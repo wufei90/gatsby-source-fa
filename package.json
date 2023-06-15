@@ -1,0 +1,47 @@
+{
+  "name": "gatsby-source-fa",
+  "description": "A Gatsby plugin to source objects and images from AWS S3",
+  "version": "1.0.0",
+  "contributors": [
+    "Fungible Apparel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsby-uc/plugins.git",
+    "directory": "packages/gatsby-source-s3"
+  },
+  "homepage": "https://github.com/gatsby-uc/plugins/blob/main/packages/gatsby-source-s3/README.md",
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin",
+    "s3"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1",
+    "@types/node": "^18.16.16",
+    "babel-preset-gatsby-package": "^3.10.0",
+    "cypress": "^12.13.0",
+    "start-server-and-test": "^2.0.0"
+  },
+  "scripts": {
+    "build": "babel src --out-dir ./dist --ignore \"**/__tests__,**/*.d.ts\" --extensions \".ts,.js\"",
+    "start": "(cd ../../integration-tests/source-s3 && yarn build && yarn serve)",
+    "test:e2e": "cypress run",
+    "test": "start-server-and-test 'yarn start' http://localhost:9000 'yarn test:e2e'"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.347.0",
+    "@aws-sdk/s3-request-presigner": "^3.347.0",
+    "@babel/runtime": "^7.22.3",
+    "gatsby-source-filesystem": "^5.10.0"
+  },
+  "peerDependencies": {
+    "gatsby": "^4.5.2 || ^5.0.0"
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  }
+}
